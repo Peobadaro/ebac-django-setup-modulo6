@@ -15,3 +15,14 @@ python manage.py runserver
 ```
 
 Abra http://127.0.0.1:8000/ no navegador.
+
+## App `blog` (Módulo 7)
+
+- **Modelos:** `Category` e `Post` (Post → User e Post → Category, ambos 1:N)
+- **Post:** título, slug automático, resumo, conteúdo, status (rascunho/publicado), datas e manager `Post.published`
+- **Testes:** `pytest` + `pytest-django` + `factory_boy` em `blog/tests/`
+
+```bash
+pip install -r requirements-dev.txt
+pytest
+```
