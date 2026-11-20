@@ -1,0 +1,7 @@
+<article class="card post-card">
+  {% if post.category %}<a class="tag" href="{% url 'blog:category' post.category.slug %}">{{ post.category.name }}</a>{% endif %}
+  <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+  <p class="meta">{{ post.published_at|date:"d \d\e F \d\e Y" }} · {{ post.author.get_full_name|default:post.author.username }}</p>
+  <p>{{ post.summary|default:post.content|truncatewords:30 }}</p>
+  <a class="read-more" href="{{ post.get_absolute_url }}">Ler mais →</a>
+</article>

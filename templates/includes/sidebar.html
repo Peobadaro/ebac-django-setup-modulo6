@@ -1,0 +1,28 @@
+<aside class="sidebar">
+  <div class="card">
+    <h3>Sobre</h3>
+    <p>Portfólio de Pedro Badaró, estudante de Desenvolvimento Full Stack Python na EBAC.</p>
+  </div>
+
+  <div class="card">
+    <h3>Categorias</h3>
+    <ul>
+      {% for category in sidebar_categories %}
+        <li><a href="{% url 'blog:category' category.slug %}">{{ category.name }}</a> <span class="badge">{{ category.total }}</span></li>
+      {% empty %}
+        <li>Nenhuma categoria ainda.</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Posts recentes</h3>
+    <ul>
+      {% for recent in sidebar_recent_posts %}
+        <li><a href="{{ recent.get_absolute_url }}">{{ recent.title }}</a></li>
+      {% empty %}
+        <li>Nenhum post publicado.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</aside>
