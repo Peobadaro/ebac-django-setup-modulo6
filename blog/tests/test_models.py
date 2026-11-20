@@ -63,7 +63,7 @@ class TestPost:
 
     def test_get_absolute_url(self):
         post = PostFactory(title="Meu post")
-        assert post.get_absolute_url() == "/blog/meu-post/"
+        assert post.get_absolute_url() == "/meu-post/"
 
 
 # -------------------------------------------------------- Relacionamentos
