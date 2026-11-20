@@ -1,0 +1,32 @@
+{% load static %}<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Portfólio{% endblock %} | Pedro Badaró</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="{% url 'blog:index' %}">Pedro Badaró<span>.dev</span></a>
+      <nav>
+        <a href="{% url 'blog:index' %}">Posts</a>
+        <a href="https://github.com/Peobadaro" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <section class="content">
+      {% block content %}{% endblock %}
+    </section>
+    {% include "includes/sidebar.html" %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© {% now "Y" %} Pedro Badaró Ferreira · Feito com Django</div>
+  </footer>
+</body>
+</html>

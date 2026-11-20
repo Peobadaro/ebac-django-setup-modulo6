@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{% if category %}{{ category.name }}{% else %}Posts{% endif %}{% endblock %}
+
+{% block content %}
+  <h1 class="page-title">{% if category %}Categoria: {{ category.name }}{% else %}Últimos posts{% endif %}</h1>
+
+  {% for post in posts %}
+    {% include "blog/_post_card.html" %}
+  {% empty %}
+    <p class="empty">Nenhum post publicado ainda.</p>
+  {% endfor %}
+
+  {% if is_paginated %}
+    <nav class="pagination">
+      {% if page_obj.has_previous %}<a href="?page={{ page_obj.previous_page_number }}">← Anteriores</a>{% endif %}
+      <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+      {% if page_obj.has_next %}<a href="?page={{ page_obj.next_page_number }}">Próximos →</a>{% endif %}
+    </nav>
+  {% endif %}
+{% endblock %}

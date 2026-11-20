@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <article class="card post-detail">
+    {% if post.category %}<a class="tag" href="{% url 'blog:category' post.category.slug %}">{{ post.category.name }}</a>{% endif %}
+    <h1>{{ post.title }}</h1>
+    <p class="meta">Publicado em {{ post.published_at|date:"d \d\e F \d\e Y" }} por {{ post.author.get_full_name|default:post.author.username }}</p>
+    {% if post.summary %}<p class="lead">{{ post.summary }}</p>{% endif %}
+    <div class="post-body">{{ post.content|linebreaks }}</div>
+  </article>
+  <a class="read-more" href="{% url 'blog:index' %}">← Voltar para os posts</a>
+{% endblock %}
