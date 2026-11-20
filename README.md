@@ -26,3 +26,15 @@ Abra http://127.0.0.1:8000/ no navegador.
 pip install -r requirements-dev.txt
 pytest
 ```
+
+## Templates (Módulo 9)
+
+| Template | Função |
+|---|---|
+| `templates/base.html` | Layout base: cabeçalho, bloco de conteúdo, sidebar e rodapé, com CSS em `static/css/style.css` |
+| `templates/includes/sidebar.html` | Sidebar com "Sobre", categorias e posts recentes (dados do context processor `blog.context_processors.sidebar`) |
+| `blog/templates/blog/index.html` | Página inicial com os posts publicados e paginação (também usada na página de categoria) |
+| `blog/templates/blog/post_detail.html` | Página de um post |
+| `blog/templates/blog/_post_card.html` | Card de post reutilizado na listagem |
+
+Rotas: `/` (posts), `/categoria/<slug>/` e `/<slug-do-post>/`.
