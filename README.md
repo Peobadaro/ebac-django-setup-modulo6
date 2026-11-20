@@ -26,3 +26,12 @@ Abra http://127.0.0.1:8000/ no navegador.
 pip install -r requirements-dev.txt
 pytest
 ```
+
+## Django Admin (Módulo 10)
+
+```bash
+python manage.py createsuperuser
+python manage.py runserver
+```
+
+Acesse http://127.0.0.1:8000/admin/ → **Blog › Posts**: listagem com filtros (status, categoria, autor, data), busca, status editável na lista e ações em massa para publicar ou voltar para rascunho.
